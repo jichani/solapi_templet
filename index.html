@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sample</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div>Name : <input type="text" id="name" /></div>
+    <div>Text : <input type="text" id="text" /></div>
+    <div>Tel : <input type="text" id="tel" /></div>
+    <div>Url : <input type="text" id="btn_url" value="google.com" /></div>
     <div>
-        Name :  <input type="text" id="name" />
+      <button onclick="btn_sendMessage()">Submit!</button>
+    </div>
+    <br />
+    <div>
+      <a>get pf info</a>
+      <input type="text" id="pfid" value="KA01PF22041206411o33TFWW9Sl71Ppp" />
+      <button onclick="getPfInfo()">get</button>
     </div>
     <div>
-        Tel :   <input type="text" id="tel" />
-    </div>
-    <div>
-        Url :   <input type="text" id="btn_url" value="google.com" />
-    </div>
-    <div>
-        <button onclick="btn_sendMessage()">Submit!</button>
-    </div>
-    <br/>
-    <div>
-        <a>get pf info</a>
-        <input type="text" id="pfid" value="KA01PF22041206411o33TFWW9Sl71Ppp" />
-        <button onclick="getPfInfo()">get</button>
-    </div>
-    <div>
-        <a>get pf infos</a>
-        <button onclick="getPfInfos()">get</button>
+      <a>get pf infos</a>
+      <button onclick="getPfInfos()">get</button>
     </div>
 
     <div>
-        <a>get template info</a>
-        <input type="text" id="template-id" value="KA01TP220425021337488b6WEd5EwL3C" />
-        <button onclick="getTemplateInfo()">get</button>
+      <a>get template info</a>
+      <input type="text" id="template-id" value="KA01TP241026094541397tTFhLL9tWe1" />
+      <button onclick="getTemplateInfo()">get</button>
     </div>
     <div>
-        <a>get template infos</a>
-        <button onclick="getTemplateInfos()">get</button>
+      <a>get template infos</a>
+      <button onclick="getTemplateInfos()">get</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
+    <script src="appkey.js"></script>
     <script src="solapi.js"></script>
 
     <script>
-        function getPfInfo(){
-            let pfid = document.getElementById('pfid').value;
-            getPlusfriend(pfid);
-        }
+      function getPfInfo() {
+        let pfid = document.getElementById("pfid").value;
+        getPlusfriend(pfid);
+      }
 
-        function getPfInfos(){
-            getPlusfriends();
-        }
+      function getPfInfos() {
+        getPlusfriends();
+      }
 
-        function getTemplateInfo(){
-            let templateId = document.getElementById('template-id').value;
-            getTemplate(templateId);
-        }
+      function getTemplateInfo() {
+        let templateId = document.getElementById("template-id").value;
+        getTemplate(templateId);
+      }
 
-        function getTemplateInfos(){
-            getTemplates();
-        }
+      function getTemplateInfos() {
+        getTemplates();
+      }
 
-        function btn_sendMessage(){
-            let name = document.getElementById('name').value;
-            let tel = document.getElementById('tel').value;
-            let btn_url = document.getElementById('btn_url').value;
-            let templateId = document.getElementById('template-id').value;
-            let pfid = document.getElementById('pfid').value;
+      function btn_sendMessage() {
+        let name = document.getElementById("name").value;
+        let text = document.getElementById("text").value;
+        let tel = document.getElementById("tel").value;
+        let btn_url = document.getElementById("btn_url").value;
+        let templateId = document.getElementById("template-id").value;
+        let pfid = document.getElementById("pfid").value;
 
-            console.log(name);
-            console.log(tel);
-            console.log(btn_url);
-            console.log(templateId);
+        console.log(name);
+        console.log(text);
+        console.log(tel);
+        console.log(btn_url);
+        console.log(templateId);
 
-            sendMessage(name, tel, btn_url, pfid, templateId);
-        }
+        sendMessage(name, text, tel, btn_url, pfid, templateId);
+      }
     </script>
-</body>
+  </body>
 </html>
